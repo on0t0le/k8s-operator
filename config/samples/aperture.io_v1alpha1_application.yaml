@@ -1,0 +1,9 @@
+apiVersion: aperture.io.aperture.io/v1alpha1
+kind: Application
+metadata:
+  labels:
+    app.kubernetes.io/name: k8s-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: application-sample
+spec:
+  # TODO(user): Add fields here
