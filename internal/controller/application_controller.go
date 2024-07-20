@@ -27,6 +27,7 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	v1 "k8s.io/api/core/v1"
 	// "k8s.io/apimachinery/pkg/util/intstr"
+	"time"
 
 	"k8s.io/apimachinery/pkg/runtime"
 	ctrl "sigs.k8s.io/controller-runtime"
@@ -93,7 +94,7 @@ func (r *ApplicationReconciler) reconcileCreate(ctx context.Context, app *apertu
 	// if err != nil {
 	// 	return ctrl.Result{}, err
 	// }
-	return ctrl.Result{}, nil
+	return ctrl.Result{RequeueAfter: time.Minute * 1}, nil
 }
 
 func (r *ApplicationReconciler) createOrUpdateDeployment(ctx context.Context, app *apertureiov1alpha1.Application) error {
