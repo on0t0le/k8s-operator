@@ -6,4 +6,6 @@ metadata:
     app.kubernetes.io/managed-by: kustomize
   name: application-sample
 spec:
-  # TODO(user): Add fields here
+  image: nginx:latest
+  replicas: 2
+  port: 80

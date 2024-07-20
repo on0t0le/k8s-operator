@@ -28,8 +28,15 @@ type ApplicationSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	// Foo is an example field of Application. Edit application_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	// (Required) Image definition
+	Image    string `json:"image,omitempty"`
+	// (Optional) Is an array of the image pull secrets
+	// +optional
+	ImagePullSecrets []string `json:"imagePullSecrets"`
+	// (Required) Number of replicas for the deployment
+	Replicas int32  `json:"replicas,omitempty"`
+	// (Required) Port the application is listening
+	Port     int32  `json:"port,omitempty"`
 }
 
 // ApplicationStatus defines the observed state of Application
